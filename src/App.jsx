@@ -27,8 +27,10 @@ import {
   validateNewsletter,
 } from "./uiState.js";
 
-const brand = "/brand/";
-const heroAssets = "/figma-hero/";
+const assetBase = import.meta.env.BASE_URL;
+const brand = `${assetBase}brand/`;
+const heroAssets = `${assetBase}figma-hero/`;
+const headerAssets = `${assetBase}header/`;
 const showDeferredSections = false;
 const showFooterNewsletter = false;
 const temporaryContact = {
@@ -291,7 +293,7 @@ function Header({ menuOpen, setMenuOpen, showPageNotice }) {
                 aria-controls="header-contact-popover"
                 onClick={() => setContactOpen((open) => !open)}
               >
-                <img src="/header/phone.svg" alt="" />
+                <img src={`${headerAssets}phone.svg`} alt="" />
               </button>
               {contactOpen && (
                 <div id="header-contact-popover" role="dialog" aria-label="Контакти TuProfe">
@@ -299,8 +301,8 @@ function Header({ menuOpen, setMenuOpen, showPageNotice }) {
                 </div>
               )}
             </div>
-            <button type="button" className="language-button" aria-label="Змінити мову" onClick={() => showPageNotice("Мова")}><img src="/header/language-ua.svg" alt="" /><CaretDown size={14} weight="bold" /></button>
-            <button type="button" className="header-icon-button cabinet-button" aria-label="Кабінет студента" onClick={() => showPageNotice("Кабінет")}><img src="/header/cabinet.svg" alt="" /></button>
+            <button type="button" className="language-button" aria-label="Змінити мову" onClick={() => showPageNotice("Мова")}><img src={`${headerAssets}language-ua.svg`} alt="" /><CaretDown size={14} weight="bold" /></button>
+            <button type="button" className="header-icon-button cabinet-button" aria-label="Кабінет студента" onClick={() => showPageNotice("Кабінет")}><img src={`${headerAssets}cabinet.svg`} alt="" /></button>
           </div>
           <a className="nav-cta" href="#lead">Підібрати навчання</a>
         </div>
@@ -311,9 +313,9 @@ function Header({ menuOpen, setMenuOpen, showPageNotice }) {
       <div className={`menu-overlay ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
         <nav>{mobilePages.map((label, index) => <button key={label} style={{ "--menu-delay": `${100 + index * 70}ms` }} onClick={() => { setMenuOpen(false); showPageNotice(label); }}>{label}</button>)}</nav>
         <div className="mobile-header-tools" aria-label="Швидкі дії">
-          <a className="mobile-header-tool" href={temporaryContact.phone} aria-label="Зателефонувати TuProfe"><img src="/header/phone.svg" alt="" /></a>
-          <button type="button" className="mobile-header-tool" aria-label="Змінити мову" onClick={() => { setMenuOpen(false); showPageNotice("Мова"); }}><img src="/header/language-ua.svg" alt="" /></button>
-          <button type="button" className="mobile-header-tool" aria-label="Кабінет студента" onClick={() => { setMenuOpen(false); showPageNotice("Кабінет"); }}><img src="/header/cabinet.svg" alt="" /></button>
+          <a className="mobile-header-tool" href={temporaryContact.phone} aria-label="Зателефонувати TuProfe"><img src={`${headerAssets}phone.svg`} alt="" /></a>
+          <button type="button" className="mobile-header-tool" aria-label="Змінити мову" onClick={() => { setMenuOpen(false); showPageNotice("Мова"); }}><img src={`${headerAssets}language-ua.svg`} alt="" /></button>
+          <button type="button" className="mobile-header-tool" aria-label="Кабінет студента" onClick={() => { setMenuOpen(false); showPageNotice("Кабінет"); }}><img src={`${headerAssets}cabinet.svg`} alt="" /></button>
         </div>
         <ContactCard className="mobile-contact-card" />
         <ArrowButton href="#lead" onClick={() => setMenuOpen(false)}>Записатися</ArrowButton>

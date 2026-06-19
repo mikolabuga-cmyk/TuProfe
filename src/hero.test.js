@@ -24,9 +24,10 @@ test("sticker stacking updates z-index without reordering animated DOM nodes", a
 test("header uses the supplied utility assets and temporary contact links", async () => {
   const source = await readFile(new URL("./App.jsx", import.meta.url), "utf8");
 
-  assert.match(source, /\/header\/phone\.svg/);
-  assert.match(source, /\/header\/language-ua\.svg/);
-  assert.match(source, /\/header\/cabinet\.svg/);
+  assert.match(source, /const headerAssets = `\$\{assetBase\}header\/`/);
+  assert.match(source, /`\$\{headerAssets\}phone\.svg`/);
+  assert.match(source, /`\$\{headerAssets\}language-ua\.svg`/);
+  assert.match(source, /`\$\{headerAssets\}cabinet\.svg`/);
   assert.match(source, /\+34 612 345 678/);
   assert.match(source, /tel:\+34612345678/);
   assert.match(source, /tg:\/\/resolve\?phone=34612345678/);
