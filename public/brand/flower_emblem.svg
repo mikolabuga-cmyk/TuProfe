@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="hole">
+      <rect width="200" height="200" fill="white"/>
+      <polygon points="117,70 135,100 117,130 83,130 65,100 83,70" fill="black"/>
+    </mask>
+  </defs>
+  <g fill="#8985F3" mask="url(#hole)">
+    <circle cx="100" cy="60" r="40"/>
+    <circle cx="135" cy="80" r="40"/>
+    <circle cx="135" cy="120" r="40"/>
+    <circle cx="100" cy="140" r="40"/>
+    <circle cx="65"  cy="120" r="40"/>
+    <circle cx="65"  cy="80"  r="40"/>
+  </g>
+</svg>

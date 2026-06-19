@@ -1,0 +1,7 @@
+<svg viewBox="0 0 324 158" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,0 324,0 324,118 302,118 326,154 268,118 0,118"
+           fill="#FFFFFF" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+  <text x="152" y="78" text-anchor="middle"
+        font-family="Montserrat,'Arial Black',sans-serif"
+        font-weight="800" font-size="42" fill="#292929">¡vamos!</text>
+</svg>
