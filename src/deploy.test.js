@@ -24,3 +24,9 @@ test("the Vite build and public assets support repository subpaths", async () =>
   assert.match(app, /const heroAssets = `\$\{assetBase\}figma-hero\/`;/);
   assert.doesNotMatch(app, /src="\/header\//);
 });
+
+test("machine-specific npm configuration is excluded from deployment", async () => {
+  const gitignore = await readFile(new URL("../.gitignore", import.meta.url), "utf8");
+
+  assert.match(gitignore, /^\.npmrc$/m);
+});
